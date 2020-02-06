@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Inventory
+comment0.text=\r\n\ class\ Inventory\ -\ geef\ hier\ een\ beschrijving\ van\ deze\ class\r\n\r\n\ @author\ (jouw\ naam)\r\n\ @version\ (versie\ nummer\ of\ datum)\r\n
+comment1.params=
+comment1.target=Inventory()
+comment1.text=\r\n\ Constructor\ voor\ objects\ van\ class\ Inventory\r\n
+comment2.params=
+comment2.target=java.util.ArrayList\ getInventory()
+comment2.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n\r\n\ @param\ \ y\ \ \ \ deze\ method\ krijgt\ deze\ parameter\ mee\ in\ de\ aanroep\r\n\ @return\ \ \ \ deze\ method\ geeft\ de\ som\ van\ x\ en\ y\ terug\r\n
+comment3.params=item
+comment3.target=void\ addItem(Item)
+comment3.text=\r\n\ methode\r\n
+comment4.params=
+comment4.target=java.lang.String\ getTest()
+numComments=5
