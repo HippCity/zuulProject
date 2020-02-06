@@ -18,7 +18,7 @@ public class Inventory
      */
     public Inventory()
     {
-        // geef de instance variables een beginwaarde
+        // hier moet nog een hele hoop gebeuren
         x = 0;
     }
 
