@@ -160,6 +160,10 @@ public class Game
                 inventory();
                 break;
                 
+            case LANGUAGE:
+                setLanguage(command);
+                break;
+                
             //case inspect:
             //    inspect(item);
             //    break;
@@ -232,6 +236,7 @@ public class Game
      */
     private void printHelp() 
     {
+        
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the Hawkins laboratory.");
         System.out.println();
@@ -244,6 +249,33 @@ public class Game
      * room, otherwise print an error message.
      */
     private void goRoom(Command command) 
+    {
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("Go where?");
+            return;
+        }
+
+        String direction = command.getSecondWord();
+
+        // Try to leave current room.
+        Room nextRoom = currentRoom.getExit(direction);
+
+        if (nextRoom == null) {
+            System.out.println("There is no door!");
+        }
+        else {
+            currentRoom = nextRoom;
+            System.out.println(currentRoom.getLongDescription());
+            roomList.add(currentRoom);
+        }
+    }
+
+    /** 
+     * Try to go in one direction. If there is an exit, enter the new
+     * room, otherwise print an error message.
+     */
+    private void setLanguage(Command command) 
     {
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...

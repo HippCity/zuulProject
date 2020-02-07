@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=SL
-comment0.text=\r\n\ class\ SL\ -\ geef\ hier\ een\ beschrijving\ van\ deze\ class\r\n\r\n\ @author\ (jouw\ naam)\r\n\ @version\ (versie\ nummer\ of\ datum)\r\n
-comment1.params=
-comment1.target=SL()
+comment0.text=\r\n\ class\ SL\ -\ geef\ hier\ een\ beschrijving\ van\ deze\ class\r\n\r\n\ @author\ Geert\ Perton\r\n\ @version\ 07-02-2020\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
 comment1.text=\r\n\ Constructor\ voor\ objects\ van\ class\ SL\r\n
 comment2.params=y
 comment2.target=int\ voorbeeldMethod(int)
