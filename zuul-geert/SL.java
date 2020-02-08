@@ -11,28 +11,65 @@ public class SL
 {
     // instance variables - vervang deze door jouw variabelen
     private int x;
+    private static String string;
+    private static HashMap<String, String> NL = new HashMap<String, String>();
+    private static HashMap<String, String> languages = new HashMap<String, String>();
     
-
     /**
      * Constructor voor objects van class SL
      */
-    public static void main(String[] args)
+    public static void initialize()
     {
-        HashMap<String, String> stringLibrary = new HashMap<String, String>();
+        //NL.put();
         
-        //stringLibrary.put();
-        stringLibrary.put("Welcome to Hawkins laboratory!", "Welcome bij het Hawkins lab!");
+        languages.put("EN", "EN");
+        languages.put("NL", "NL");
+        
+        
+        NL.put("Welcome to Hawkins laboratory!", "Welcome bij het Hawkins lab!");
+        NL.put("What language?", "Welke taal?");
     }
 
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @param  string    deze method krijgt deze parameter mee in de aanroep
      * @return    deze method geeft de som van x en y terug
      */
-    public int voorbeeldMethod(int y)
+    public static String getString(String key)
+    {
+            if (Game.language == "NL") {
+            string = NL.get(key);
+            //System.out.println("the string is " + string);
+            return string;
+        }
+        else {
+            return key;
+        }
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public static String getLanguage(String lang)
+    {
+        return languages.get(lang);
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public int getLanguages(int y)
     {
         // schrijf hier jouw code
         return x + y;
     }
+
+
 }

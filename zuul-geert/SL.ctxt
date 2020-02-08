@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=SL
 comment0.text=\r\n\ class\ SL\ -\ geef\ hier\ een\ beschrijving\ van\ deze\ class\r\n\r\n\ @author\ Geert\ Perton\r\n\ @version\ 07-02-2020\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
+comment1.params=
+comment1.target=void\ initialize()
 comment1.text=\r\n\ Constructor\ voor\ objects\ van\ class\ SL\r\n
-comment2.params=y
-comment2.target=int\ voorbeeldMethod(int)
-comment2.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n\r\n\ @param\ \ y\ \ \ \ deze\ method\ krijgt\ deze\ parameter\ mee\ in\ de\ aanroep\r\n\ @return\ \ \ \ deze\ method\ geeft\ de\ som\ van\ x\ en\ y\ terug\r\n
-numComments=3
+comment2.params=key
+comment2.target=java.lang.String\ getString(java.lang.String)
+comment2.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n\r\n\ @param\ \ string\ \ \ \ deze\ method\ krijgt\ deze\ parameter\ mee\ in\ de\ aanroep\r\n\ @return\ \ \ \ deze\ method\ geeft\ de\ som\ van\ x\ en\ y\ terug\r\n
+comment3.params=lang
+comment3.target=java.lang.String\ getLanguage(java.lang.String)
+comment3.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n\r\n\ @param\ \ y\tdeze\ method\ krijgt\ deze\ parameter\ mee\ in\ de\ aanroep\r\n\ @return\tdeze\ method\ geeft\ de\ som\ van\ x\ en\ y\ terug\r\n
+comment4.params=y
+comment4.target=int\ getLanguages(int)
+comment4.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n\r\n\ @param\ \ y\tdeze\ method\ krijgt\ deze\ parameter\ mee\ in\ de\ aanroep\r\n\ @return\tdeze\ method\ geeft\ de\ som\ van\ x\ en\ y\ terug\r\n
+numComments=5

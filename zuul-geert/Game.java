@@ -24,6 +24,7 @@ public class Game
     private ArrayList<Room> roomList = new ArrayList<Room>();
     private int index;
     private Room previousRoom;
+    public static String language;
         
     /**
      * Create the game and initialise its internal map.
@@ -31,6 +32,8 @@ public class Game
     public Game() 
     {
         createRooms();
+        SL.initialize();
+        language = "EN";
         parser = new Parser();
     }
 
@@ -279,22 +282,30 @@ public class Game
     {
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
-            return;
+            System.out.println(SL.getString("What language?"));
+            return ;
         }
 
-        String direction = command.getSecondWord();
+        String lang = command.getSecondWord();
+        String taal = SL.getLanguage(lang);
+        //String taal = "EN";
 
-        // Try to leave current room.
-        Room nextRoom = currentRoom.getExit(direction);
-
-        if (nextRoom == null) {
-            System.out.println("There is no door!");
+        if (language == taal) {
+            System.out.println("You have already selected this language!");
         }
         else {
-            currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
-            roomList.add(currentRoom);
+            if (taal != null) {
+                System.out.println("The current language is: " + language);
+                System.out.println("The language is being set to: " + taal);
+                language = taal;
+                System.out.println("Succesfully changed the language");
+                System.out.println("The language now is: " + language);
+            }
+            else {
+                System.out.println("That language is not available, the available languages are: ");
+                System.out.println("English EN");
+                System.out.println("Dutch NL");
+            }
         }
     }
 
