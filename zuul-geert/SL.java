@@ -28,6 +28,58 @@ public class SL
         
         NL.put("Welcome to Hawkins laboratory!", "Welcome bij het Hawkins lab!");
         NL.put("What language?", "Welke taal?");
+        NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins lab");
+        NL.put("in the reception area", "");
+        NL.put("in the waiting room", "");
+        NL.put("in the hallway", "");
+        NL.put("in the bathroom", "");
+        NL.put("in the lab", "");
+        NL.put("in the behavioral lab", "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
+        //NL.put(, "");
     }
 
     /**

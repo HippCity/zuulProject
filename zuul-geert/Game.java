@@ -45,7 +45,7 @@ public class Game
         Room outside, receptionArea, waitingRoom, hallway, bathroom, mainLab, behavioralLab, biocontainmentRoom, office, storage, basement;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the Hawkins laboratory");
+        outside = new Room(SL.getString("outside the main entrance of the Hawkins laboratory"));
         receptionArea = new Room("in the reception area");
         waitingRoom = new Room("in the waiting room");
         hallway = new Room("in the hallway");
