@@ -33,7 +33,6 @@ public class SL
         NL.put("in the hallway", "in de gang");
         NL.put("in the bathroom", "in het toilet");
         NL.put("You are ", "Je bent ");
-        //vanaf hier moet alles nog worden vertaald
         NL.put("in the lab", "in het lab");
         NL.put("in the behavioral lab", "in het gedrag onderzoek lab");
         NL.put("in the biocontainment room", "in de biocontainment kamer");
@@ -59,12 +58,12 @@ public class SL
         NL.put("Dutch NL", "Nederlands NL");
         NL.put("Quit what?", "Waarmee stoppen?");
         NL.put("Exits:", "Uitgangen:");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
+        NL.put("north", "noord");
+        NL.put("east", "oost");
+        NL.put("south", "zuid");
+        NL.put("west", "west");
+        NL.put("up", "omhoog");
+        NL.put("down", "omlaag");
         //NL.put(, "");
         //NL.put(, "");
         //NL.put(, "");

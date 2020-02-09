@@ -73,7 +73,7 @@ public class Room
         String returnString = SL.getString("Exits:");
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
-            returnString += " " + exit;
+            returnString += " " + SL.getString(exit);
         }
         return returnString;
     }
