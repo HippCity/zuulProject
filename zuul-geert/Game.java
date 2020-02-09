@@ -166,9 +166,13 @@ public class Game
             case LANGUAGE:
                 setLanguage(command);
                 break;
+            
+            //case TEST:
+            //    BACK;
+            //    break;
                 
             //case inspect:
-            //    inspect(item);
+            //    inspect(command);
             //    break;
         }
         return wantToQuit;
@@ -259,7 +263,7 @@ public class Game
             return;
         }
 
-        String direction = command.getSecondWord();
+        String direction = SL.getEnglishString(command.getSecondWord());
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);

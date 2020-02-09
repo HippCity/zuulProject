@@ -13,7 +13,9 @@ public class SL
     private int x;
     private static String string;
     private static HashMap<String, String> NL = new HashMap<String, String>();
+    private static HashMap<String, String> EN = new HashMap<String, String>();
     private static HashMap<String, String> languages = new HashMap<String, String>();
+    
     
     /**
      * Constructor voor objects van class SL
@@ -26,6 +28,14 @@ public class SL
         languages.put("NL", "NL");
         
         //SL.getString(
+        
+        EN.put("noord", "north");
+        EN.put("oost", "east");
+        EN.put("zuid", "south");
+        EN.put("west", "west");
+        EN.put("omhoog", "up");
+        EN.put("omlaag", "down");
+        
         
         NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins laboratorium");
         NL.put("in the reception area", "in de receptie");
@@ -110,6 +120,7 @@ public class SL
     {
             if (Game.language == "NL") {
             string = NL.get(key);
+            //System.out.println("the key is " + key);
             //System.out.println("the string is " + string);
             return string;
         }
@@ -135,10 +146,16 @@ public class SL
      * @param  y	deze method krijgt deze parameter mee in de aanroep
      * @return	deze method geeft de som van x en y terug
      */
-    public int getLanguages(int y)
+    public static String getEnglishString(String key)
     {
-        // schrijf hier jouw code
-        return x + y;
+            if (Game.language == "NL") {
+            string = EN.get(key);
+            //System.out.println("the string is " + string);
+            return string;
+        }
+        else {
+            return key;
+        }
     }
 
 
