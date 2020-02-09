@@ -35,7 +35,13 @@ public class SL
         EN.put("west", "west");
         EN.put("omhoog", "up");
         EN.put("omlaag", "down");
-        
+        EN.put("ga", "go");
+        EN.put("stop", "quit");
+        EN.put("help", "help");
+        EN.put("terug", "back");
+        EN.put("over", "about");
+        EN.put("inventaris", "inventory");
+        EN.put("taal", "language");
         
         NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins laboratorium");
         NL.put("in the reception area", "in de receptie");
@@ -68,13 +74,23 @@ public class SL
         NL.put("Dutch NL", "Nederlands NL");
         NL.put("Quit what?", "Waarmee stoppen?");
         NL.put("Exits:", "Uitgangen:");
-        NL.put("north", "noord");
+        
+        //command words
+        NL.put("north", "noord"); 
         NL.put("east", "oost");
         NL.put("south", "zuid");
         NL.put("west", "west");
         NL.put("up", "omhoog");
         NL.put("down", "omlaag");
-        //NL.put(, "");
+        NL.put("go", "ga");
+        NL.put("quit", "stop");
+        NL.put("help", "help");
+        NL.put("back", "terug");
+        NL.put("about", "over");
+        NL.put("inventory", "inventaris");
+        NL.put("language", "taal");
+        
+        
         //NL.put(, "");
         //NL.put(, "");
         //NL.put(, "");
