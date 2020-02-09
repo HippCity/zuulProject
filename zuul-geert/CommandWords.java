@@ -38,7 +38,9 @@ public class CommandWords
      */
     public CommandWord getCommandWord(String commandWord)
     {
-        CommandWord command = validCommands.get(commandWord);
+        
+        String correctCommandWord = SL.getEnglishString(commandWord);
+        CommandWord command = validCommands.get(correctCommandWord);
         if(command != null) {
             return command;
         }
@@ -62,7 +64,7 @@ public class CommandWords
     public void showAll() 
     {
         for(String command : validCommands.keySet()) {
-            System.out.print(command + "  ");
+            System.out.print(SL.getString(command) + "  ");
         }
         System.out.println();
     }

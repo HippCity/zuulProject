@@ -24,6 +24,7 @@ public class Game
     private ArrayList<Room> roomList = new ArrayList<Room>();
     private int index;
     private Room previousRoom;
+    public static String language;
         
     /**
      * Create the game and initialise its internal map.
@@ -31,6 +32,8 @@ public class Game
     public Game() 
     {
         createRooms();
+        SL.initialize();
+        language = "EN";
         parser = new Parser();
     }
 
@@ -104,7 +107,7 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println(SL.getString("Thank you for playing.  Good bye."));
     }
 
     /**
@@ -113,9 +116,9 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to Hawkins laboratory!");
-        System.out.println("Hawkins laboratory is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
+        System.out.println(SL.getString("Welcome to Hawkins laboratory!"));
+        System.out.println(SL.getString("Hawkins laboratory is a new, incredibly boring adventure game."));
+        System.out.println(SL.getString("Type '") + CommandWord.HELP + SL.getString("' if you need help."));
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
@@ -133,7 +136,7 @@ public class Game
 
         switch (commandWord) {
             case UNKNOWN:
-                System.out.println("I don't know what you mean...");
+                System.out.println(SL.getString("I don't know what you mean..."));
                 break;
 
             case HELP:
@@ -160,8 +163,16 @@ public class Game
                 inventory();
                 break;
                 
+            case LANGUAGE:
+                setLanguage(command);
+                break;
+            
+            //case TEST:
+            //    BACK;
+            //    break;
+                
             //case inspect:
-            //    inspect(item);
+            //    inspect(command);
             //    break;
         }
         return wantToQuit;
@@ -221,7 +232,7 @@ public class Game
             roomList.remove(index);
         }
         else {
-            System.out.println("You need to move at least one room before being able to use the command back");
+            System.out.println(SL.getString("You need to move at least one room before being able to use the command back"));
         }
     }
 
@@ -232,10 +243,11 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the Hawkins laboratory.");
+        
+        System.out.println(SL.getString("You are lost. You are alone. You wander"));
+        System.out.println(SL.getString("around at the Hawkins laboratory."));
         System.out.println();
-        System.out.println("Your command words are:");
+        System.out.println(SL.getString("Your command words are:"));
         parser.showCommands();
     }
 
@@ -247,22 +259,57 @@ public class Game
     {
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
+            System.out.println(SL.getString("Go where?"));
             return;
         }
 
-        String direction = command.getSecondWord();
+        String direction = SL.getEnglishString(command.getSecondWord());
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            System.out.println(SL.getString("There is no door!"));
         }
         else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
             roomList.add(currentRoom);
+        }
+    }
+
+    /** 
+     * Try to go in one direction. If there is an exit, enter the new
+     * room, otherwise print an error message.
+     */
+    private void setLanguage(Command command) 
+    {
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println(SL.getString("What language?"));
+            return ;
+        }
+
+        String lang = command.getSecondWord();
+        String taal = SL.getLanguage(lang);
+        //String taal = "EN";
+
+        if (language == taal) {
+            System.out.println(SL.getString("You have already selected this language!"));
+        }
+        else {
+            if (taal != null) {
+                //System.out.println("The current language is: " + language);
+                //System.out.println("The language is being set to: " + taal);
+                language = taal;
+                //System.out.println("Succesfully changed the language");
+                System.out.println(SL.getString("The language now is: ") + language);
+            }
+            else {
+                System.out.println(SL.getString("That language is not available, the available languages are: "));
+                System.out.println(SL.getString("English EN"));
+                System.out.println(SL.getString("Dutch NL"));
+            }
         }
     }
 
@@ -274,7 +321,7 @@ public class Game
     private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) {
-            System.out.println("Quit what?");
+            System.out.println(SL.getString("Quit what?"));
             return false;
         }
         else {
