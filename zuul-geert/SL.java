@@ -76,19 +76,23 @@ public class SL
         NL.put("Exits:", "Uitgangen:");
         
         //command words
-        NL.put("north", "noord"); 
-        NL.put("east", "oost");
-        NL.put("south", "zuid");
-        NL.put("west", "west");
-        NL.put("up", "omhoog");
-        NL.put("down", "omlaag");
-        NL.put("go", "ga");
-        NL.put("quit", "stop");
-        NL.put("help", "help");
-        NL.put("back", "terug");
-        NL.put("about", "over");
-        NL.put("inventory", "inventaris");
-        NL.put("language", "taal");
+        for (String translation : EN.keySet()){
+            String translated = EN.get(translation);
+            NL.put(translated, translation);
+        }
+        //NL.put("north", "noord"); 
+        //NL.put("east", "oost");
+        //NL.put("south", "zuid");
+        //NL.put("west", "west");
+        //NL.put("up", "omhoog");
+        //NL.put("down", "omlaag");
+        //NL.put("go", "ga");
+        //NL.put("quit", "stop");
+        //NL.put("help", "help");
+        //NL.put("back", "terug");
+        //NL.put("about", "over");
+        //NL.put("inventory", "inventaris");
+        //NL.put("language", "taal");
         
         
         //NL.put(, "");
