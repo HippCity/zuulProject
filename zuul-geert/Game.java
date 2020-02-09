@@ -1,11 +1,6 @@
 import java.util.ArrayList;
 
 /**
- *  This class is the main class of the "World of Zuul" application. 
- *  "World of Zuul" is a very simple, text based adventure game.  Users 
- *  can walk around some scenery. That's all. It should really be extended 
- *  to make it more interesting!
- * 
  *  To play this game, create an instance of this class and call the "play"
  *  method.
  * 
@@ -14,7 +9,7 @@ import java.util.ArrayList;
  *  executes the commands that the parser returns.
  * 
  * @author  Geert Perton
- * @version 2020.02.06
+ * @version 2020.02.09
  */
 
 public class Game 
