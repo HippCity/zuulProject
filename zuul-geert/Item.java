@@ -19,16 +19,29 @@ public class Item
         this.name = name;
         this. weight = weight;
     }
-
+    
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y    deze method krijgt deze parameter mee in de aanroep
-     * @return    deze method geeft de som van x en y terug
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
      */
-    public int voorbeeldMethod(int y)
+    public String getName()
     {
         // schrijf hier jouw code
-        return y;
+        return name;
     }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public int getWeight()
+    {
+        // schrijf hier jouw code
+        return weight;
+    }
+
 }

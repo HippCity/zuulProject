@@ -63,6 +63,8 @@ public class Game
         receptionArea.setExit("north", hallway);
         receptionArea.setExit("south", outside);
         receptionArea.setExit("west", waitingRoom);
+        receptionArea.setItem("axe", 5);
+        
         
         waitingRoom.setExit("east", receptionArea);
 
@@ -214,7 +216,8 @@ public class Game
      */
     private void about() 
     {
-       System.out.println("*insert information about the current room, or about the game*");
+       currentRoom.printItem();
+       //System.out.println("*insert information about the current room, or about the game*");
     }
     
     /**
@@ -328,4 +331,5 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+    
 }

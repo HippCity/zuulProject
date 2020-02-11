@@ -74,6 +74,12 @@ public class SL
         NL.put("Dutch NL", "Nederlands NL");
         NL.put("Quit what?", "Waarmee stoppen?");
         NL.put("Exits:", "Uitgangen:");
+        NL.put("This room contains:", "Deze kamer bevat:");
+        NL.put("An ", "Een ");
+        NL.put(", weighing ", ", deze weegt ");
+        NL.put("This room does not contain any items", "Deze kamer bevat geen objecten");
+        NL.put("axe", "bijl");
+        
         
         //command words
         for (String translation : EN.keySet()){
@@ -95,37 +101,6 @@ public class SL
         //NL.put("language", "taal");
         
         
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
-        //NL.put(, "");
         //NL.put(, "");
         //NL.put(, "");
     }
