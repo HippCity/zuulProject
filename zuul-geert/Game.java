@@ -33,6 +33,7 @@ public class Game
     {
         createRooms();
         SL.initialize();
+        Room.createItems();
         language = "EN";
         parser = new Parser();
     }
@@ -63,15 +64,17 @@ public class Game
         receptionArea.setExit("north", hallway);
         receptionArea.setExit("south", outside);
         receptionArea.setExit("west", waitingRoom);
-        receptionArea.setItem("axe", 5);
+        receptionArea.setRandomItem();
         
         
         waitingRoom.setExit("east", receptionArea);
+        waitingRoom.setRandomItem();
 
         hallway.setExit("north", mainLab);
         hallway.setExit("east", office);
         hallway.setExit("south", receptionArea);
         hallway.setExit("west", bathroom);
+        hallway.setRandomItem();
         
         bathroom.setExit("east", hallway);
         

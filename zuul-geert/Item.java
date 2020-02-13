@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * class Item - geef hier een beschrijving van deze class
@@ -10,6 +11,7 @@ public class Item
     // instance variables - vervang deze door jouw variabelen
     private String name;
     private int weight;
+    
 
     /**
      * Constructor voor objects van class Item
@@ -43,5 +45,23 @@ public class Item
         // schrijf hier jouw code
         return weight;
     }
+    
+    
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public String newName()
+    {
+        // schrijf hier jouw code
+        return "";
+    }
+
+    
+    
+
 
 }

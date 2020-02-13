@@ -2,6 +2,7 @@ import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Class Room - a room in an adventure game.
@@ -22,6 +23,8 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private ArrayList<Item> itemList;
+    private static ArrayList<String> names;
+    Random rand = new Random();
 
     /**
      * Create a room described "description". Initially, it has
@@ -145,6 +148,43 @@ public class Room
     {
         return itemList.get(0).getWeight();
     }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public void setRandomItem()
+    {
+        createItems();
+        int randomeInteger = rand.nextInt(names.size());
+        //String itemName = names.get(randomeInteger);
+        Item item1;
+        item1 = new Item(names.get(randomeInteger), rand.nextInt(6));
+        itemList.add(item1);
+        
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public static void createItems()
+    {
+        names = new ArrayList<String>();
+        names.add("axe");
+        names.add("key");
+        names.add("stick");
+        names.add("screw");
+        names.add("hammer");
+        names.add("crowbar");
+        names.add("ductape");
+        names.add("knife");
+    }
+    
 
 
 
