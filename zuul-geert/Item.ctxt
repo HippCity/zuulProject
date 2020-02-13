@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Item
-comment0.text=\r\n\ class\ Item\ -\ geef\ hier\ een\ beschrijving\ van\ deze\ class\r\n\r\n\ @author\ (jouw\ naam)\r\n\ @version\ (versie\ nummer\ of\ datum)\r\n
+comment0.text=\r\n\ class\ Item\ -\ defines\ what\ an\ item\ is\r\n\r\n\ @author\ Geert\ Perton\r\n\ @version\ 2-13-2020\r\n
 comment1.params=name\ weight
 comment1.target=Item(java.lang.String,\ int)
 comment1.text=\r\n\ Constructor\ voor\ objects\ van\ class\ Item\r\n

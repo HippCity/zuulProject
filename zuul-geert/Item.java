@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 /**
- * class Item - geef hier een beschrijving van deze class
+ * class Item - defines what an item is
  *
- * @author (jouw naam)
- * @version (versie nummer of datum)
+ * @author Geert Perton
+ * @version 2-13-2020
  */
 public class Item
 {
