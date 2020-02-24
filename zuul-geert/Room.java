@@ -98,8 +98,8 @@ public class Room
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y	deze method krijgt deze parameter mee in de aanroep
-     * @return	deze method geeft de som van x en y terug
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
      */
     public void setItem(String name, int weight)
     {
@@ -112,17 +112,17 @@ public class Room
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y	deze method krijgt deze parameter mee in de aanroep
-     * @return	deze method geeft de som van x en y terug
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
      */
     public void printItem()
     {
         if (itemList.size() != 0){
             System.out.println(SL.getString("This room contains:"));
             for (int i = 0; i < itemList.size(); i++) {
-                System.out.println(SL.getString("An ") + SL.getString(itemList.get(0).getName())
+                System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
                 + SL.getString(", weighing ")
-                + itemList.get(0).getWeight() + " Kg");
+                + itemList.get(i).getWeight() + " Kg");
             }
         }
         else {
@@ -136,41 +136,51 @@ public class Room
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y	deze method krijgt deze parameter mee in de aanroep
-     * @return	deze method geeft de som van x en y terug
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
      */
-    public String getName()
+    public String getName(Item name)
     {
-        return itemList.get(0).getName();
+        return name.getName();
     }
     
-    public int getWeight()
+    public int getWeight(Item name)
     {
-        return itemList.get(0).getWeight();
+        return name.getWeight();
     }
     
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y	deze method krijgt deze parameter mee in de aanroep
-     * @return	deze method geeft de som van x en y terug
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
      */
     public void setRandomItem()
     {
         createItems();
-        int randomeInteger = rand.nextInt(names.size());
+        int randomeInteger;
         //String itemName = names.get(randomeInteger);
-        Item item1;
-        item1 = new Item(names.get(randomeInteger), rand.nextInt(6));
-        itemList.add(item1);
+        if (itemList.size() == 1) {
+            randomeInteger = rand.nextInt(names.size());
+            Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6));
+            itemList.add(item2);
+        }
+        
+        if (itemList.size() == 0) {
+            randomeInteger = rand.nextInt(names.size());
+            Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6));
+            itemList.add(item1);
+        }
+        
+        
         
     }
     
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y	deze method krijgt deze parameter mee in de aanroep
-     * @return	deze method geeft de som van x en y terug
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
      */
     public static void createItems()
     {
@@ -184,6 +194,90 @@ public class Room
         names.add("ductape");
         names.add("knife");
     }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
+     */
+    public Item getItem(String theName)
+    {
+         for (int i = 0; i < itemList.size(); i++) {
+             String nameList = itemList.get(i).getName();
+             if (nameList == theName){
+                 return itemList.get(i);
+                }
+             //System.out.println(itemList.get(i));
+        }
+        //return itemList.get(0);
+        return null;
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public String getThatName()
+    {
+        // schrijf hier jouw code
+        return "item1";
+    }
+
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
+     */
+    public void setRandomItem2()
+    {
+        createItems();
+        int randomeInteger;
+        String itemName;
+        //String itemName = names.get(randomeInteger);
+        if (itemList.size() == 1) {
+            randomeInteger = rand.nextInt(names.size());
+            itemName = names.get(randomeInteger);
+            System.out.println("het eerste willekeurige getal is");
+            System.out.println(randomeInteger);
+            System.out.println(itemName);
+            System.out.println("");
+            Item item2 = new Item(itemName, rand.nextInt(6));
+            itemList.add(item2);
+            System.out.println(randomeInteger);
+            System.out.println(itemName);
+        }
+        
+        if (itemList.size() == 0) {
+            randomeInteger = rand.nextInt(names.size());
+            itemName = names.get(randomeInteger);
+            System.out.println("het tweede willekeurige getal is");
+            System.out.println(randomeInteger);
+            System.out.println(itemName);
+            System.out.println("");
+            Item item1 = new Item(itemName, rand.nextInt(6));
+            itemList.add(item1);
+            System.out.println(randomeInteger);
+            System.out.println(itemName);
+        }
+        
+    }
+    
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public void removeItem(Item item)
+    {
+        itemList.remove(item);
+    }
+
     
 
 

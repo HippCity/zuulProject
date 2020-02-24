@@ -9,9 +9,8 @@ import java.util.ArrayList;
 public class Inventory
 {
     // instance variables - vervang deze door jouw variabelen
-    private int x;
-    private ArrayList<Item> inventoryList = new ArrayList<Item>();
-    public String test = "de test string";
+    private ArrayList<Item> inventoryList;
+    public String test;
     
     /**
      * Constructor voor objects van class Inventory
@@ -19,7 +18,8 @@ public class Inventory
     public Inventory()
     {
         // hier moet nog een hele hoop gebeuren
-        x = 0;
+        inventoryList = new ArrayList<Item>();
+        test = "de test string";
     }
 
     /**
@@ -28,9 +28,21 @@ public class Inventory
      * @param  y    deze method krijgt deze parameter mee in de aanroep
      * @return    deze method geeft de som van x en y terug
      */
-    public ArrayList getInventory()
+    public void getInventory()
     {
-        return inventoryList;
+        if (inventoryList.size() > 0) {
+            System.out.println(SL.getString("Your inventory currently contains:"));
+            for (int i = 0; i < inventoryList.size(); i++) {
+              System.out.println(SL.getString("A(n) ") + SL.getString(inventoryList.get(i).getName()));
+              //System.out.println(inventoryList.get(i).getWeight());
+            }
+            //return inventoryList;
+        }
+        else {
+            System.out.println(SL.getString("Your inventory currently contains no items"));
+        }
+        
+        
     }
     
     /**

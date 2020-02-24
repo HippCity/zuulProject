@@ -15,6 +15,7 @@ public class SL
     private static HashMap<String, String> NL = new HashMap<String, String>();
     private static HashMap<String, String> EN = new HashMap<String, String>();
     private static HashMap<String, String> languages = new HashMap<String, String>();
+    private static HashMap<String, String> NLEN = new HashMap<String, String>();
     
     
     /**
@@ -42,6 +43,7 @@ public class SL
         EN.put("over", "about");
         EN.put("inventaris", "inventory");
         EN.put("taal", "language");
+        EN.put("oppakken", "pickup");
         
         NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins laboratorium");
         NL.put("in the reception area", "in de receptie");
@@ -75,16 +77,33 @@ public class SL
         NL.put("Quit what?", "Waarmee stoppen?");
         NL.put("Exits:", "Uitgangen:");
         NL.put("This room contains:", "Deze kamer bevat:");
-        NL.put("An ", "Een ");
+        NL.put("A(n) ", "Een ");
         NL.put(", weighing ", ", deze weegt ");
         NL.put("This room does not contain any items", "Deze kamer bevat geen objecten");
         NL.put("axe", "bijl");
+        NL.put("key", "sleutel");
+        NL.put("stick", "stok");
+        NL.put("screw", "schroef");
+        NL.put("hammer", "hamer");
+        NL.put("crowbar", "koevoet");
+        NL.put("ductape", "ductape");
+        NL.put("knife", "mes");
+        NL.put("What item?", "Welk object?");
+        NL.put("That is not an item!", "Dat is geen object!");
+        NL.put("Your inventory currently contains:", "Je inventaris bevat op dit moment:");
+        NL.put("Your inventory currently contains no items", "Je inventaris bevat op dit moment geen objecten");
+        
         
         
         //command words
         for (String translation : EN.keySet()){
             String translated = EN.get(translation);
             NL.put(translated, translation);
+        }
+        
+        for (String translation : NL.keySet()){
+            String translated = NL.get(translation);
+            NLEN.put(translated, translation);
         }
         //NL.put("north", "noord"); 
         //NL.put("east", "oost");
@@ -150,6 +169,31 @@ public class SL
         }
         else {
             return key;
+        }
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  string    deze method krijgt deze parameter mee in de aanroep
+     * @return    deze method geeft de som van x en y terug
+     */
+    public static String getItemString(String key)
+    {
+        
+           if (Game.language == "NL") {
+            //string = NL.get(key);
+            string = NLEN.get(key);
+            //System.out.println("the key is " + key);
+            //System.out.println("the string is " + string);
+            return string;
+        }
+        else {
+            string = NL.get(key);
+            string = NLEN.get(string);
+            //System.out.println("the key is " + key);
+            //System.out.println("the string is " + string);
+            return string;
         }
     }
 

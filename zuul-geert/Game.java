@@ -24,6 +24,7 @@ public class Game
     private ArrayList<Room> roomList = new ArrayList<Room>();
     private int index;
     private Room previousRoom;
+    private Inventory inventory;
     public static String language;
         
     /**
@@ -36,6 +37,8 @@ public class Game
         Room.createItems();
         language = "EN";
         parser = new Parser();
+        inventory = new Inventory();
+        //inventory.Inventory();
     }
 
     /**
@@ -64,6 +67,7 @@ public class Game
         receptionArea.setExit("north", hallway);
         receptionArea.setExit("south", outside);
         receptionArea.setExit("west", waitingRoom);
+        receptionArea.setRandomItem();
         receptionArea.setRandomItem();
         
         
@@ -172,9 +176,9 @@ public class Game
                 setLanguage(command);
                 break;
             
-            //case TEST:
-            //    BACK;
-            //    break;
+            case PICKUP:
+                pickUp(command);
+                break;
                 
             //case inspect:
             //    inspect(command);
@@ -188,19 +192,61 @@ public class Game
     /**
      * Print out what items the inventory holds.
      */
-    private void pickUp() 
+    private void pickUp(Command command) 
     {
        //under construction
-       System.out.println("*pick up the item*");
+       if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println(SL.getString("What item?"));
+            return;
+        }
+
+       //String item = SL.getEnglishString(command.getSecondWord());
+
+       // Try to leave current room.
+       String itemString = SL.getItemString(command.getSecondWord());
+       Item item = currentRoom.getItem(itemString);
+
+       if (item == null) {
+            System.out.println(SL.getString("That is not an item!"));
+        }
+        else {
+            //currentRoom = nextRoom;
+            System.out.println(currentRoom.getName(item));
+            System.out.println(currentRoom.getWeight(item));
+            inventory.addItem(item);
+            currentRoom.removeItem(item);
+        }
+       //System.out.println("*insert information about set item*");
     }
     
     /**
      * Print out what items the inventory holds.
      */
-    private void inspect(Item item) 
+    private void inspect(Command command) 
     {
         //under construction
-        System.out.println("*insert information about set item*");
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println(SL.getString("What item?"));
+            return;
+        }
+
+        //String item = SL.getEnglishString(command.getSecondWord());
+
+        // Try to leave current room.
+        String itemString = SL.getItemString(command.getSecondWord());
+        Item item = currentRoom.getItem(itemString);
+
+        if (item == null) {
+            System.out.println(SL.getString("That is not an item!"));
+        }
+        else {
+            //currentRoom = nextRoom;
+            System.out.println(currentRoom.getName(item));
+            System.out.println(currentRoom.getWeight(item));
+        }
+        //System.out.println("*insert information about set item*");
     }
     
     /**
@@ -209,8 +255,7 @@ public class Game
     private void inventory() 
     {
         //under construction
-        System.out.println("Your inventory currently contains:");
-        //System.out.println(getTest);
+        inventory.getInventory();
     }
     
     /**
