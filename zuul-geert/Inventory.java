@@ -33,7 +33,8 @@ public class Inventory
         if (inventoryList.size() > 0) {
             System.out.println(SL.getString("Your inventory currently contains:"));
             for (int i = 0; i < inventoryList.size(); i++) {
-              System.out.println(SL.getString("A(n) ") + SL.getString(inventoryList.get(i).getName()));
+              System.out.println(SL.getString("A(n) ") + SL.getString(inventoryList.get(i).getName())
+               + SL.getString(", weighing ") + inventoryList.get(i).getWeight());
               //System.out.println(inventoryList.get(i).getWeight());
             }
             //return inventoryList;
