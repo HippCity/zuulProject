@@ -11,15 +11,17 @@ public class Item
     // instance variables - vervang deze door jouw variabelen
     private String name;
     private int weight;
+    boolean pickup;
     
 
     /**
      * Constructor voor objects van class Item
      */
-    public Item(String name, int weight)
+    public Item(String name, int weight, boolean pickup)
     {
         this.name = name;
-        this. weight = weight;
+        this.weight = weight;
+        this.pickup = pickup;
     }
     
     /**
@@ -46,18 +48,16 @@ public class Item
         return weight;
     }
     
-    
-    
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
      * @param  y	deze method krijgt deze parameter mee in de aanroep
      * @return	deze method geeft de som van x en y terug
      */
-    public String newName()
+    public boolean getPickup()
     {
         // schrijf hier jouw code
-        return "";
+        return pickup;
     }
 
     

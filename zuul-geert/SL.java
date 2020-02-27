@@ -92,6 +92,13 @@ public class SL
         NL.put("That is not an item!", "Dat is geen object!");
         NL.put("Your inventory currently contains:", "Je inventaris bevat op dit moment:");
         NL.put("Your inventory currently contains no items", "Je inventaris bevat op dit moment geen objecten");
+        NL.put(", weighing too much to pick up", ", die te zwaar is om op te pakken");
+        NL.put("couch", "bank");
+        NL.put("You can not pick up that item!", "Je kan dit object niet oppaken!");
+        NL.put(" KG of space left", " KG ruimte over");
+        NL.put("You have ", "Je hebt ");
+        NL.put("You do not have enough inventory space to pick up that item!", "Je hebt niet genoeg ruimte in je inventaris om dit object op te pakken!");
+        NL.put("Picked up ", "Je hebt ");
         
         
         

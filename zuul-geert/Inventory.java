@@ -10,16 +10,19 @@ public class Inventory
 {
     // instance variables - vervang deze door jouw variabelen
     private ArrayList<Item> inventoryList;
-    public String test;
+    //public String test;
+    private int inventorySize;
+    private int inventorySpace;
     
     /**
      * Constructor voor objects van class Inventory
      */
-    public Inventory()
+    public Inventory(int size)
     {
         // hier moet nog een hele hoop gebeuren
+        inventorySize = size;
+        inventorySpace = 0;
         inventoryList = new ArrayList<Item>();
-        test = "de test string";
     }
 
     /**
@@ -35,8 +38,11 @@ public class Inventory
             for (int i = 0; i < inventoryList.size(); i++) {
               System.out.println(SL.getString("A(n) ") + SL.getString(inventoryList.get(i).getName())
                + SL.getString(", weighing ") + inventoryList.get(i).getWeight());
+               
               //System.out.println(inventoryList.get(i).getWeight());
             }
+            System.out.println("");
+            System.out.println(SL.getString("You have ") + getInventorySpace() + SL.getString(" KG of space left"));
             //return inventoryList;
         }
         else {
@@ -52,10 +58,13 @@ public class Inventory
     public void addItem(Item item)
     {
         inventoryList.add(item);
+        inventorySpace = inventorySpace + item.getWeight();
     }
     
-    public String getTest()
+    public int getInventorySpace()
     {
-        return test;
+        int integer = inventorySize - inventorySpace;
+        return integer;
     }
+    
 }

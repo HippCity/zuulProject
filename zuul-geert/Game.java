@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- *  This class is the main class of the "World of Zuul" application. 
+ *  This class is the main class of the "World of Something" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
  *  can walk around some scenery. That's all. It should really be extended 
  *  to make it more interesting!
@@ -37,7 +37,7 @@ public class Game
         Room.createItems();
         language = "EN";
         parser = new Parser();
-        inventory = new Inventory();
+        inventory = new Inventory(20);
         //inventory.Inventory();
     }
 
@@ -67,18 +67,18 @@ public class Game
         receptionArea.setExit("north", hallway);
         receptionArea.setExit("south", outside);
         receptionArea.setExit("west", waitingRoom);
-        receptionArea.setRandomItem();
-        receptionArea.setRandomItem();
+        receptionArea.setItem("couch", 10, false);
+        //receptionArea.setRandomItem();
         
         
         waitingRoom.setExit("east", receptionArea);
-        waitingRoom.setRandomItem();
+        waitingRoom.setItem("couch", 19, true);
 
         hallway.setExit("north", mainLab);
         hallway.setExit("east", office);
         hallway.setExit("south", receptionArea);
         hallway.setExit("west", bathroom);
-        hallway.setRandomItem();
+        //hallway.setRandomItem();
         
         bathroom.setExit("east", hallway);
         
@@ -190,7 +190,7 @@ public class Game
     // implementations of user commands:
     
     /**
-     * Print out what items the inventory holds.
+     * Picks up the item.
      */
     private void pickUp(Command command) 
     {
@@ -210,12 +210,23 @@ public class Game
        if (item == null) {
             System.out.println(SL.getString("That is not an item!"));
         }
-        else {
-            //currentRoom = nextRoom;
-            System.out.println(currentRoom.getName(item));
-            System.out.println(currentRoom.getWeight(item));
+        else if (currentRoom.getBoolean(item) == true) {
+            if ((inventory.getInventorySpace() - currentRoom.getWeight(item)) >= 0) {
+                //currentRoom = nextRoom;
+            //System.out.println(currentRoom.getName(item));
+            //System.out.println(currentRoom.getWeight(item));
+            
             inventory.addItem(item);
+            System.out.println(SL.getString("Picked up ") + currentRoom.getName(item));
             currentRoom.removeItem(item);
+            
+            }
+            else {
+                System.out.println(SL.getString("You do not have enough inventory space to pick up that item!"));
+            }
+        }
+        else {
+            System.out.println(SL.getString("You can not pick up that item!"));
         }
        //System.out.println("*insert information about set item*");
     }

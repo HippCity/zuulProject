@@ -37,6 +37,7 @@ public class Room
         this.description = description;
         exits = new HashMap<>();
         itemList = new ArrayList<Item>();
+        setRandomCountItem();
     }
 
     /**
@@ -101,12 +102,11 @@ public class Room
      * @param  y    deze method krijgt deze parameter mee in de aanroep
      * @return  deze method geeft de som van x en y terug
      */
-    public void setItem(String name, int weight)
+    public void setItem(String name, int weight, boolean yes)
     {
-        Item bijl;
-        bijl = new Item(name, weight);
-        itemList.add(bijl);
-        
+        Item couch;
+        couch = new Item(name, weight, yes);
+        itemList.add(couch);
     }
     
     /**
@@ -120,9 +120,15 @@ public class Room
         if (itemList.size() != 0){
             System.out.println(SL.getString("This room contains:"));
             for (int i = 0; i < itemList.size(); i++) {
-                System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
-                + SL.getString(", weighing ")
-                + itemList.get(i).getWeight() + " Kg");
+                if (itemList.get(i).getPickup() == true) {
+                  System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
+                  + SL.getString(", weighing ")
+                  + itemList.get(i).getWeight() + " Kg");
+                }
+                else {
+                  System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
+                  + SL.getString(", weighing too much to pick up"));
+                }
             }
         }
         else {
@@ -149,6 +155,11 @@ public class Room
         return name.getWeight();
     }
     
+    public boolean getBoolean(Item name)
+    {
+        return name.getPickup();
+    }
+    
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -162,18 +173,30 @@ public class Room
         //String itemName = names.get(randomeInteger);
         if (itemList.size() == 1) {
             randomeInteger = rand.nextInt(names.size());
-            Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6));
+            Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true);
             itemList.add(item2);
         }
         
         if (itemList.size() == 0) {
             randomeInteger = rand.nextInt(names.size());
-            Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6));
+            Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true);
             itemList.add(item1);
         }
-        
-        
-        
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
+     */
+    public void setRandomCountItem()
+    {
+        int integer = rand.nextInt(2);
+        //System.out.println("The randome integer is " + integer);
+        for (int i = 0; i < integer; i++) {
+          setRandomItem();
+        }
     }
     
     /**
@@ -224,46 +247,6 @@ public class Room
     {
         // schrijf hier jouw code
         return "item1";
-    }
-
-    /**
-     * Voorbeeld van een method - schrijf hier jouw comment
-     *
-     * @param  y    deze method krijgt deze parameter mee in de aanroep
-     * @return  deze method geeft de som van x en y terug
-     */
-    public void setRandomItem2()
-    {
-        createItems();
-        int randomeInteger;
-        String itemName;
-        //String itemName = names.get(randomeInteger);
-        if (itemList.size() == 1) {
-            randomeInteger = rand.nextInt(names.size());
-            itemName = names.get(randomeInteger);
-            System.out.println("het eerste willekeurige getal is");
-            System.out.println(randomeInteger);
-            System.out.println(itemName);
-            System.out.println("");
-            Item item2 = new Item(itemName, rand.nextInt(6));
-            itemList.add(item2);
-            System.out.println(randomeInteger);
-            System.out.println(itemName);
-        }
-        
-        if (itemList.size() == 0) {
-            randomeInteger = rand.nextInt(names.size());
-            itemName = names.get(randomeInteger);
-            System.out.println("het tweede willekeurige getal is");
-            System.out.println(randomeInteger);
-            System.out.println(itemName);
-            System.out.println("");
-            Item item1 = new Item(itemName, rand.nextInt(6));
-            itemList.add(item1);
-            System.out.println(randomeInteger);
-            System.out.println(itemName);
-        }
-        
     }
     
     
