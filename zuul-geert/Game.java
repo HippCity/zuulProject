@@ -25,6 +25,7 @@ public class Game
     private int index;
     private Room previousRoom;
     private Inventory inventory;
+    private Fight fight;
     public static String language;
         
     /**
@@ -38,6 +39,7 @@ public class Game
         language = "EN";
         parser = new Parser();
         inventory = new Inventory(20);
+        fight = new Fight();
         //inventory.Inventory();
     }
 
@@ -63,16 +65,17 @@ public class Game
         
         // initialise room exits
         outside.setExit("north", receptionArea);
+        //outside.setItem("axe", 1, true);
 
         receptionArea.setExit("north", hallway);
         receptionArea.setExit("south", outside);
         receptionArea.setExit("west", waitingRoom);
-        receptionArea.setItem("couch", 10, false);
+        //receptionArea.setItem("axe", 2, true);
         //receptionArea.setRandomItem();
         
         
         waitingRoom.setExit("east", receptionArea);
-        waitingRoom.setItem("couch", 19, true);
+        //waitingRoom.setItem("axe", 13, true);
 
         hallway.setExit("north", mainLab);
         hallway.setExit("east", office);
@@ -165,7 +168,7 @@ public class Game
                 break;
                 
             case ABOUT:
-                about();
+                fightTester();
                 break;
                 
             case INVENTORY:
@@ -188,6 +191,18 @@ public class Game
     }
 
     // implementations of user commands:
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public void fightTester()
+    {
+        fight.startFight(1);
+    }
+
     
     /**
      * Picks up the item.

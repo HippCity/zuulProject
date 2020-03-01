@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Enemy
+comment0.text=\r\n\ class\ enemy\ -\ geef\ hier\ een\ beschrijving\ van\ deze\ class\r\n\r\n\ @author\ (jouw\ naam)\r\n\ @version\ (versie\ nummer\ of\ datum)\r\n
+comment1.params=name\ strength\ level\ health
+comment1.target=Enemy(java.lang.String,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ voor\ objects\ van\ class\ enemy\r\n
+comment2.params=
+comment2.target=int\ getStrength()
+comment2.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment3.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n
+comment4.params=
+comment4.target=int\ getHealth()
+comment4.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n
+comment5.params=
+comment5.target=int\ getLevel()
+comment5.text=\r\n\ Voorbeeld\ van\ een\ method\ -\ schrijf\ hier\ jouw\ comment\r\n
+numComments=6
