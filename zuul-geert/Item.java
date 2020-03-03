@@ -12,16 +12,17 @@ public class Item
     private String name;
     private int weight;
     boolean pickup;
-    
+    int damage;
 
     /**
      * Constructor voor objects van class Item
      */
-    public Item(String name, int weight, boolean pickup)
+    public Item(String name, int weight, boolean pickup, int damage)
     {
         this.name = name;
         this.weight = weight;
         this.pickup = pickup;
+        this.damage = damage;
     }
     
     /**
@@ -60,7 +61,10 @@ public class Item
         return pickup;
     }
 
-    
+    public int getDamage()
+    {
+        return damage;
+    }
     
 
 

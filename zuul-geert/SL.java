@@ -78,7 +78,7 @@ public class SL
         NL.put("Exits:", "Uitgangen:");
         NL.put("This room contains:", "Deze kamer bevat:");
         NL.put("A(n) ", "Een ");
-        NL.put(", weighing ", ", deze weegt ");
+        NL.put("weight: ", "gewicht: ");
         NL.put("This room does not contain any items", "Deze kamer bevat geen objecten");
         NL.put("axe", "bijl");
         NL.put("key", "sleutel");
@@ -98,7 +98,11 @@ public class SL
         NL.put(" KG of space left", " KG ruimte over");
         NL.put("You have ", "Je hebt ");
         NL.put("You do not have enough inventory space to pick up that item!", "Je hebt niet genoeg ruimte in je inventaris om dit object op te pakken!");
-        NL.put("Picked up ", "Je hebt ");
+        NL.put("Picked up: ", "Je hebt opgepakt: ");
+        NL.put("Current weapons: ", "Huidige wapen: ");
+        NL.put("equip" , "uitrusten");
+        NL.put("damage: " , "schade: ");
+        
         
         
         

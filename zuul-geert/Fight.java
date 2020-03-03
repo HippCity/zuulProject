@@ -21,7 +21,6 @@ public class Fight
     public Fight()
     {
         createEnemys();
-        
     }
 
     /**
@@ -59,8 +58,13 @@ public class Fight
      */
     public void startFight(int level)
     {
+        
         Enemy currentEnemy = pickEnemy();
-        System.out.println(currentEnemy.getName());
+        for (int i = 100; i > level; i = currentEnemy.getLevel()) {
+             currentEnemy = pickEnemy();
+        }
+        System.out.println("You stumbled across a(n) " + currentEnemy.getName());
+        System.out.println("His health is  " + currentEnemy.getHealth());
     }
     
     private Enemy pickEnemy()

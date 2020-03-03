@@ -36,12 +36,17 @@ public class Inventory
         if (inventoryList.size() > 0) {
             System.out.println(SL.getString("Your inventory currently contains:"));
             for (int i = 0; i < inventoryList.size(); i++) {
-              System.out.println(SL.getString("A(n) ") + SL.getString(inventoryList.get(i).getName())
-               + SL.getString(", weighing ") + inventoryList.get(i).getWeight());
-               
+              System.out.println(SL.getString("A(n) ") + SL.getString(inventoryList.get(i).getName()));
+              System.out.println(SL.getString("weight: ") + inventoryList.get(i).getWeight());
+              System.out.println(SL.getString("damage: ") + inventoryList.get(i).getDamage());
+              System.out.println("");
               //System.out.println(inventoryList.get(i).getWeight());
             }
-            System.out.println("");
+            
+            //if (Game.getEquipedItem() != null) {
+                
+            //}
+            //System.out.println("");
             System.out.println(SL.getString("You have ") + getInventorySpace() + SL.getString(" KG of space left"));
             //return inventoryList;
         }
@@ -61,10 +66,31 @@ public class Inventory
         inventorySpace = inventorySpace + item.getWeight();
     }
     
+    
+    public void removeItem(Item item)
+    {
+        inventorySpace = inventorySpace - item.getWeight();
+        inventoryList.remove(item);
+        
+    }
+    
     public int getInventorySpace()
     {
         int integer = inventorySize - inventorySpace;
         return integer;
+    }
+    
+    public Item getItem(String theName)
+    {
+        for (int i = 0; i < inventoryList.size(); i++) {
+             String nameList = inventoryList.get(i).getName();
+             if (nameList == theName){
+                 return inventoryList.get(i);
+                }
+             //System.out.println(itemList.get(i));
+        }
+        //return itemList.get(0);
+        return null;
     }
     
 }

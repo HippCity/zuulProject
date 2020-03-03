@@ -21,6 +21,7 @@ import java.util.Random;
 public class Room 
 {
     private String description;
+    private int level;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private ArrayList<Item> itemList;
     private static ArrayList<String> names;
@@ -102,10 +103,10 @@ public class Room
      * @param  y    deze method krijgt deze parameter mee in de aanroep
      * @return  deze method geeft de som van x en y terug
      */
-    public void setItem(String name, int weight, boolean yes)
+    public void setItem(String name, int weight, boolean yes, int damage)
     {
         Item couch;
-        couch = new Item(name, weight, yes);
+        couch = new Item(name, weight, yes, damage);
         itemList.add(couch);
     }
     
@@ -173,13 +174,13 @@ public class Room
         //String itemName = names.get(randomeInteger);
         if (itemList.size() == 1) {
             randomeInteger = rand.nextInt(names.size());
-            Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true);
+            Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
             itemList.add(item2);
         }
         
         if (itemList.size() == 0) {
             randomeInteger = rand.nextInt(names.size());
-            Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true);
+            Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
             itemList.add(item1);
         }
     }
@@ -226,7 +227,7 @@ public class Room
      */
     public Item getItem(String theName)
     {
-         for (int i = 0; i < itemList.size(); i++) {
+        for (int i = 0; i < itemList.size(); i++) {
              String nameList = itemList.get(i).getName();
              if (nameList == theName){
                  return itemList.get(i);
@@ -260,6 +261,29 @@ public class Room
     {
         itemList.remove(item);
     }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public void setLevel(int level)
+    {
+        this.level = level;
+    }
+    
+    /**
+     * Voorbeeld van een method - schrijf hier jouw comment
+     *
+     * @param  y	deze method krijgt deze parameter mee in de aanroep
+     * @return	deze method geeft de som van x en y terug
+     */
+    public int getLevel()
+    {
+        return level;
+    }
+
 
     
 

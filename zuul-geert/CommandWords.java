@@ -64,7 +64,24 @@ public class CommandWords
     public void showAll() 
     {
         for(String command : validCommands.keySet()) {
-            System.out.print(SL.getString(command) + "  ");
+            String firstletter = Character.toString(command.charAt(0));
+            if (!firstletter.equals(".")) {
+                System.out.print(SL.getString(command) + "  ");
+            }
+        }
+        System.out.println();
+    }
+    
+    /**
+     * Print all valid commands to System.out.
+     */
+    public void showAllFight() 
+    {
+        for(String command : validCommands.keySet()) {
+            String firstletter = Character.toString(command.charAt(0));
+            if (firstletter.equals(".")) {
+                System.out.print(SL.getString(command) + "  ");
+            }
         }
         System.out.println();
     }
