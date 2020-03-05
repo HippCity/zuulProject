@@ -44,6 +44,7 @@ public class SL
         EN.put("inventaris", "inventory");
         EN.put("taal", "language");
         EN.put("oppakken", "pickup");
+        EN.put("uitrusten", "equip");
         
         NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins laboratorium");
         NL.put("in the reception area", "in de receptie");
@@ -79,6 +80,7 @@ public class SL
         NL.put("This room contains:", "Deze kamer bevat:");
         NL.put("A(n) ", "Een ");
         NL.put("weight: ", "gewicht: ");
+        NL.put(", weight: ", ", gewicht: ");
         NL.put("This room does not contain any items", "Deze kamer bevat geen objecten");
         NL.put("axe", "bijl");
         NL.put("key", "sleutel");
@@ -99,10 +101,11 @@ public class SL
         NL.put("You have ", "Je hebt ");
         NL.put("You do not have enough inventory space to pick up that item!", "Je hebt niet genoeg ruimte in je inventaris om dit object op te pakken!");
         NL.put("Picked up: ", "Je hebt opgepakt: ");
-        NL.put("Current weapons: ", "Huidige wapen: ");
-        NL.put("equip" , "uitrusten");
+        NL.put("Current weapon: ", "Huidige wapen: ");
         NL.put("damage: " , "schade: ");
-        
+        NL.put("Your objective is to close the portal to the upside down " , "Je doel is het portaal naar de omgekeerde wereld sluiten");
+        NL.put("Type help for help" , "Typ help voor hulp");
+        NL.put("You need to equip an item to be able to stab" , "Je moet eerst een wapen gebruiken voordat je kan steken");
         
         
         

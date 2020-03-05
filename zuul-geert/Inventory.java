@@ -43,11 +43,11 @@ public class Inventory
               //System.out.println(inventoryList.get(i).getWeight());
             }
             
-            //if (Game.getEquipedItem() != null) {
+            //if (getEquipedItem() != null) {
                 
             //}
             //System.out.println("");
-            System.out.println(SL.getString("You have ") + getInventorySpace() + SL.getString(" KG of space left"));
+            //System.out.println(SL.getString("You have ") + getIntInventorySpace() + SL.getString(" KG of space left"));
             //return inventoryList;
         }
         else {
@@ -55,6 +55,11 @@ public class Inventory
         }
         
         
+    }
+    
+    public void getInventorySpace()
+    {
+        System.out.println(SL.getString("You have ") + getIntInventorySpace() + SL.getString(" KG of space left"));
     }
     
     /**
@@ -74,7 +79,7 @@ public class Inventory
         
     }
     
-    public int getInventorySpace()
+    public int getIntInventorySpace()
     {
         int integer = inventorySize - inventorySpace;
         return integer;

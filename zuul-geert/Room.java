@@ -123,7 +123,7 @@ public class Room
             for (int i = 0; i < itemList.size(); i++) {
                 if (itemList.get(i).getPickup() == true) {
                   System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
-                  + SL.getString(", weighing ")
+                  + SL.getString(", weight: ")
                   + itemList.get(i).getWeight() + " Kg");
                 }
                 else {
@@ -210,7 +210,7 @@ public class Room
     {
         names = new ArrayList<String>();
         names.add("axe");
-        names.add("key");
+        //names.add("key");
         names.add("stick");
         names.add("screw");
         names.add("hammer");

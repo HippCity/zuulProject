@@ -42,7 +42,7 @@
             language = "EN";
             parser = new Parser();
             inventory = new Inventory(20);
-            fight = new Fight();
+            fight = new Fight(20);
             //inventory.Inventory();
         }
     
@@ -96,6 +96,7 @@
             office.setExit("east", storage);
             office.setExit("west", hallway);
             office.setLevel(2);
+            office.setItem("key", 1, true, 1);
             
             storage.setExit("west", office);
             storage.setExit("down", basement);
@@ -145,6 +146,7 @@
             System.out.println();
             System.out.println(SL.getString("Welcome to Hawkins laboratory!"));
             System.out.println(SL.getString("Hawkins laboratory is a new, incredibly boring adventure game."));
+            System.out.println(SL.getString("Your objective is to close the portal to the upside down "));
             System.out.println(SL.getString("Type '") + CommandWord.HELP + SL.getString("' if you need help."));
             System.out.println();
             System.out.println(currentRoom.getLongDescription());
@@ -248,7 +250,7 @@
                         break;
                         
                     case PUNCH:
-                        punch(command);
+                        punch();
                         break;
                         
                     default:
@@ -282,7 +284,7 @@
                 //System.out.println(currentRoom.getWeight(item));
                 
                 //inventory.addItem(item);
-                System.out.println(SL.getString("Currenet weapons: ") + SL.getString(item.getName()));
+                System.out.println(SL.getString("Current weapon: ") + SL.getString(item.getName()));
                 equipedItem.add(item);
                 //currentRoom.removeItem(item);
                 
@@ -290,22 +292,31 @@
                 
             }
             else {
-                System.out.println(SL.getString("you already have an item equiped"));
+                System.out.println(SL.getString("Currenet weapon: ") + SL.getString(item.getName()));
+                equipedItem.set(0, item);
+                //System.out.println(SL.getString("you already have an item equiped"));
             }
         }
         
-        private void punch(Command command)
+        private void punch()
         {
-            
+            fight.punch();
         }
         
         private void block()
         {
-            
+            fight.block();
         }
         
         private void stab(Command command)
         {
+            if (equipedItem.size() == 1) {
+                    fight.stab(command);
+                }
+            else {
+                System.out.println(SL.getString("You need to equip an item to be able to stab"));
+            }
+            
             
         }
         
@@ -329,6 +340,7 @@
         {
             fightCheck();
             fight.startFight(currentRoom.getLevel());
+            System.out.println(SL.getString("Type help for help"));
         }
         
         
@@ -354,13 +366,13 @@
                 System.out.println(SL.getString("That is not an item!"));
             }
             else if (currentRoom.getBoolean(item) == true) {
-                if ((inventory.getInventorySpace() - currentRoom.getWeight(item)) >= 0) {
+                if ((inventory.getIntInventorySpace() - currentRoom.getWeight(item)) >= 0) {
                     //currentRoom = nextRoom;
                 //System.out.println(currentRoom.getName(item));
                 //System.out.println(currentRoom.getWeight(item));
                 
                 inventory.addItem(item);
-                System.out.println(SL.getString("Picked up ") + SL.getString(currentRoom.getName(item)));
+                System.out.println(SL.getString("Picked up: ") + SL.getString(currentRoom.getName(item)));
                 currentRoom.removeItem(item);
                 
                 }
@@ -410,6 +422,13 @@
         {
             //under construction
             inventory.getInventory();
+            //if (inventory.getIntInventorySpace() < 20) {
+                if (equipedItem.size() == 1) {
+                    System.out.println(SL.getString("Current weapon: ") + SL.getString(getEquipedItem().getName()));
+                }
+            //}
+            
+            inventory.getInventorySpace();
         }
         
         public Item getEquipedItem()

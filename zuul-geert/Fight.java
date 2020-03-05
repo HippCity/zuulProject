@@ -11,16 +11,21 @@ import java.util.Random;
 public class Fight
 {
     // instance variables - vervang deze door jouw variabelen
-    private int x;
+    private int damage;
     private ArrayList<Enemy> enemyList;
+    private int health;
+    private int enemyHealth;
+    private Enemy currentEnemy;
+    
     Random rand = new Random();
 
     /**
      * Constructor voor objects van class fight
      */
-    public Fight()
+    public Fight(int health)
     {
         createEnemys();
+        health = 20;
     }
 
     /**
@@ -53,18 +58,19 @@ public class Fight
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
-     * @param  y	deze method krijgt deze parameter mee in de aanroep
-     * @return	deze method geeft de som van x en y terug
+     * @param  y    deze method krijgt deze parameter mee in de aanroep
+     * @return  deze method geeft de som van x en y terug
      */
     public void startFight(int level)
     {
         
-        Enemy currentEnemy = pickEnemy();
+        currentEnemy = pickEnemy();
         for (int i = 100; i > level; i = currentEnemy.getLevel()) {
              currentEnemy = pickEnemy();
         }
         System.out.println("You stumbled across a(n) " + currentEnemy.getName());
-        System.out.println("His health is  " + currentEnemy.getHealth());
+        enemyHealth = currentEnemy.getHealth();
+        System.out.println("His health is  " + enemyHealth);
     }
     
     private Enemy pickEnemy()
@@ -76,6 +82,50 @@ public class Fight
         //  System.out.println(i);
         //}
         return enemyList.get(rand.nextInt(enemyList.size()));
+    }
+    
+    private void printDamageDone()
+    {
+        System.out.println("Total damage done: " + damage + "hp");
+    }
+    
+    private void printEnemyStatus()
+    {
+        if (enemyHealth <= 0) {
+            enemyHealth = 0;
+            System.out.println("You defeated the " + currentEnemy.getName());
+        }
+        else {
+            System.out.println("Current health enemey: " + enemyHealth + "hp");
+        }
+    }
+    
+    public void punch()
+    {
+        damage = rand.nextInt(5) + 1;
+        System.out.println("punched " + currentEnemy.getName());
+        printDamageDone();
+        enemyHealth = enemyHealth - damage;
+        printEnemyStatus();
+        
+        
+    }
+    
+    public void block()
+    {
+        System.out.println("blocked attack");
+    }
+    
+    public void stab(Command command)
+    {
+        String direction = SL.getEnglishString(command.getSecondWord());
+        if (direction == null) {
+            System.out.println("Stab where?");
+            System.out.println("You can stab the head or the chest");
+        }
+        else {
+        System.out.println("stabbed enemy" + direction);
+        }
     }
 
 }
