@@ -108,7 +108,7 @@ public class SL
         NL.put("Picked up: ", "Je hebt opgepakt: ");
         NL.put("Current weapon: ", "Huidige wapen: ");
         NL.put("damage: " , "schade: ");
-        NL.put("Your objective is to close the portal to the upside down " , "Je doel is het portaal naar de omgekeerde wereld sluiten");
+        NL.put("Your objective is to find and close the portal to the upside down " , "Je doel is het portaal naar de omgekeerde wereld te vinden en te sluiten");
         NL.put("Type help for help" , "Typ help voor hulp");
         NL.put("You need to equip an item to be able to stab" , "Je moet eerst een wapen gebruiken voordat je kan steken");
         NL.put("The ", "De ");
@@ -120,6 +120,7 @@ public class SL
         NL.put("Catogorgon", "Catogorgon");
         NL.put("Demogorgon", "Demogorgon");
         NL.put("Tentacle Hydra Portal", "Tentakel Hydra Portaal");
+        NL.put("grenade", "granaat");
         
         
         

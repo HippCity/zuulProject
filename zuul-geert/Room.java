@@ -22,6 +22,7 @@ public class Room
 {
     private String description;
     private int level;
+    private int key;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private ArrayList<Item> itemList;
     private static ArrayList<String> names;
@@ -40,6 +41,7 @@ public class Room
         exits = new HashMap<>();
         itemList = new ArrayList<Item>();
         setRandomCountItem();
+        key = 0;
     }
 
     /**
@@ -59,6 +61,16 @@ public class Room
     public String getShortDescription()
     {
         return description;
+    }
+    
+    public int getKey()
+    {
+        return key;
+    }
+    
+    public void setKey(int key)
+    {
+        this.key = key;
     }
 
     /**

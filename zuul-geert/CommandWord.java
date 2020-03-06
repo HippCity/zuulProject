@@ -14,7 +14,7 @@ public enum CommandWord
     , EQUIP("equip"), DROP("drop")
     
     //combat commands
-    , CHANGEFIGHT(".changefight"), STAB(".stab"), BLOCK(".block"), PUNCH(".punch");
+    , STAB(".stab"), BLOCK(".block"), PUNCH(".punch");
     
     // The command string.
     private String commandString;
