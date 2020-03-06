@@ -45,6 +45,11 @@ public class SL
         EN.put("taal", "language");
         EN.put("oppakken", "pickup");
         EN.put("uitrusten", "equip");
+        EN.put(".changefight", ".verandergevecht");
+        EN.put(".stab", ".steek");
+        EN.put(".block", ".blokkeer");
+        EN.put(".punch", ".vuistslag");
+        EN.put("drop", "laatvallen");
         
         NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins laboratorium");
         NL.put("in the reception area", "in de receptie");
@@ -106,6 +111,15 @@ public class SL
         NL.put("Your objective is to close the portal to the upside down " , "Je doel is het portaal naar de omgekeerde wereld sluiten");
         NL.put("Type help for help" , "Typ help voor hulp");
         NL.put("You need to equip an item to be able to stab" , "Je moet eerst een wapen gebruiken voordat je kan steken");
+        NL.put("The ", "De ");
+        NL.put(" dropped a(n) ", " onthefde zich van een ");
+        NL.put("Evil Scientist", "Kwaadardige Wetenschapper ");
+        NL.put("Guard", "Bewaker");
+        NL.put("Hazmat Scientist", "Hazmat Wetenschapper");
+        NL.put("Secret Agent", "Geheim Agent");
+        NL.put("Catogorgon", "Catogorgon");
+        NL.put("Demogorgon", "Demogorgon");
+        NL.put("Tentacle Hydra Portal", "Tentakel Hydra Portaal");
         
         
         

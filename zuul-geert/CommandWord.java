@@ -11,7 +11,7 @@ public enum CommandWord
     // corresponding user interface string.
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), BACK("back"), ABOUT("about")
     , INVENTORY("inventory"), LANGUAGE("language"), PICKUP("pickup")
-    , EQUIP("equip")
+    , EQUIP("equip"), DROP("drop")
     
     //combat commands
     , CHANGEFIGHT(".changefight"), STAB(".stab"), BLOCK(".block"), PUNCH(".punch");

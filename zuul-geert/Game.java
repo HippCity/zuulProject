@@ -28,7 +28,8 @@
         private Room previousRoom;
         private Inventory inventory;
         private Fight fight;
-        private boolean theFight = false;
+        private boolean wantToQuit;
+        
         public static String language;
             
         /**
@@ -159,10 +160,10 @@
          */
         private boolean processCommand(Command command) 
         {
-            boolean wantToQuit = false;
+            wantToQuit = false;
     
             CommandWord commandWord = command.getCommandWord();
-            if (theFight == false) {
+            if (fight.inFight == false) {
                 switch (commandWord) {
                      
                     case UNKNOWN:
@@ -209,6 +210,10 @@
                         startFight();
                         break;
                         
+                    case DROP:
+                        drop(command);
+                        break;
+                        
                     default:
                         System.out.println("You need to be in a fight to use that command");
                         
@@ -250,8 +255,10 @@
                         break;
                         
                     case PUNCH:
-                        punch();
+                        punch(command);
                         break;
+                        
+                    
                         
                     default:
                         System.out.println("You can't use that command when in a fight");
@@ -264,13 +271,45 @@
     
         // implementations of user commands:
         
+        private void temporary()
+        {
+            //currentRoom.newItem(1);
+        }
+        
+        private void drop(Command command)
+        {
+           if(!command.hasSecondWord()) {
+                // if there is no second word, we don't know where to go...
+                System.out.println(SL.getString("What item?"));
+                return;
+            }
+    
+           //String item = SL.getEnglishString(command.getSecondWord());
+    
+           // Try to leave current room.
+           String itemString = SL.getItemString(command.getSecondWord());
+           Item item = inventory.getItem(itemString);
+    
+           if (item == null) {
+                System.out.println(SL.getString("That is not an item!"));
+            }
+           else {
+                currentRoom.addItem(item);
+                System.out.println(SL.getString("Dropped: ") + SL.getString(currentRoom.getName(item)));
+                inventory.removeItem(item);
+            }
+            //else {
+            //    System.out.println(SL.getString("You can not pick up that item!"));
+            //}
+        }
+        
         private void equip(Command command)
         {
            if(!command.hasSecondWord()) {
                 // if there is no second word, we don't know where to go...
                 System.out.println(SL.getString("What item?"));
                 return;
-           }
+            }
             
            String itemString = SL.getItemString(command.getSecondWord());
            Item item = inventory.getItem(itemString);
@@ -298,9 +337,26 @@
             }
         }
         
-        private void punch()
+        private void checkItemDrop()
+        {
+            if (fight.itemDrop == true) {
+                currentRoom.newItem(fight.getEnemyName().getLevel(), fight.getEnemyName().getName());
+                fight.itemDrop = false;
+            }
+        }
+        
+        private void checkQuit(Command command)
+        {
+            if (fight.quit == true) {
+                wantToQuit = quit(command);
+            }
+        }
+        
+        private void punch(Command command)
         {
             fight.punch();
+            checkItemDrop();
+            checkQuit(command);
         }
         
         private void block()
@@ -315,19 +371,19 @@
                 }
             else {
                 System.out.println(SL.getString("You need to equip an item to be able to stab"));
-            }
+             }
             
             
         }
         
         private void fightCheck()
         {
-            if (theFight == true) {
-                theFight = false;
-            }
+            if (fight.inFight == true) {
+                fight.inFight = false;
+             }
             else {
-                theFight = true;
-            }
+                fight.inFight = true;
+             }
         }
         
         /**
@@ -339,8 +395,15 @@
         private void startFight()
         {
             fightCheck();
+            
             fight.startFight(currentRoom.getLevel());
             System.out.println(SL.getString("Type help for help"));
+            //while (fightCheck == true) {
+            //    if (fight.checkFight() == false) {
+            //        fightCheck();
+            //    }
+            //}
+            
         }
         
         

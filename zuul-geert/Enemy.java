@@ -38,7 +38,7 @@ public class Enemy
      */
     public String getName()
     {
-        return name;
+        return SL.getString(name);
     }
     
     /**

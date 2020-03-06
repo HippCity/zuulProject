@@ -10,7 +10,7 @@ public class Main
     /**
      * Constructor voor objects van class Main
      */
-    public static void Main()//String[] args)
+    public static void main(String[] args)
     {
         // geef de instance variables een beginwaarde
         Game game = new Game();

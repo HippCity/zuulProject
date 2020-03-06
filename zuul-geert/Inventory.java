@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * class Inventory - geef hier een beschrijving van deze class
@@ -13,6 +14,8 @@ public class Inventory
     //public String test;
     private int inventorySize;
     private int inventorySpace;
+    private static ArrayList<String> names;
+    Random rand = new Random();
     
     /**
      * Constructor voor objects van class Inventory
@@ -71,7 +74,6 @@ public class Inventory
         inventorySpace = inventorySpace + item.getWeight();
     }
     
-    
     public void removeItem(Item item)
     {
         inventorySpace = inventorySpace - item.getWeight();
@@ -96,6 +98,26 @@ public class Inventory
         }
         //return itemList.get(0);
         return null;
+    }
+    
+    private static void createItems()
+    {
+        names = new ArrayList<String>();
+        names.add("axe");
+        names.add("stick");
+        names.add("hammer");
+        names.add("crowbar");
+        names.add("knife");
+    }
+    
+    public void newOldItem(int level)
+    {
+        int randomeInteger;
+        createItems();
+        randomeInteger = rand.nextInt(names.size());
+        Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
+        addItem(item1);
+        System.out.println("The " + "dropped an ");
     }
     
 }

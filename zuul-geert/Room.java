@@ -26,6 +26,7 @@ public class Room
     private ArrayList<Item> itemList;
     private static ArrayList<String> names;
     Random rand = new Random();
+    private int randomeInteger;
 
     /**
      * Create a room described "description". Initially, it has
@@ -170,9 +171,8 @@ public class Room
     public void setRandomItem()
     {
         createItems();
-        int randomeInteger;
         //String itemName = names.get(randomeInteger);
-        if (itemList.size() == 1) {
+        if (itemList.size() >= 1) {
             randomeInteger = rand.nextInt(names.size());
             Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
             itemList.add(item2);
@@ -183,6 +183,11 @@ public class Room
             Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
             itemList.add(item1);
         }
+    }
+    
+    public void addItem(Item item)
+    {
+        itemList.add(item);
     }
     
     /**
@@ -250,6 +255,15 @@ public class Room
         return "item1";
     }
     
+    public void newItem(int level, String enemyName)
+    {
+        
+        //createItems();
+        randomeInteger = rand.nextInt(names.size());
+        Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5 + level));
+        addItem(item1);
+        System.out.println(SL.getString("The ") + enemyName + SL.getString(" dropped a(n) ") + item1.getName());
+    }
     
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
