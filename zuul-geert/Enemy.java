@@ -32,7 +32,7 @@ public class Enemy
     {
         return strength;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      */
@@ -40,7 +40,7 @@ public class Enemy
     {
         return SL.getString(name);
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      */
@@ -48,7 +48,7 @@ public class Enemy
     {
         return health;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      */

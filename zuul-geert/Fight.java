@@ -77,9 +77,9 @@ public class Fight
             for (int i = 100; i > level; i = currentEnemy.getLevel()) {
                 currentEnemy = pickEnemy();
             }
-            System.out.println("You stumbled across a(n) " + currentEnemy.getName());
+            System.out.println(SL.getString("You stumbled across a(n) ") + currentEnemy.getName());
             enemyHealth = currentEnemy.getHealth();
-            System.out.println("His health is  " + enemyHealth);
+            System.out.println(SL.getString("His health is  ") + enemyHealth);
         }
         else {
             bossfight = true;
@@ -87,9 +87,9 @@ public class Fight
             for (int i = 100; i != level; i = currentEnemy.getLevel()) {
                 currentEnemy = pickEnemy();
             }
-            System.out.println("It is the " + currentEnemy.getName() + "!");
+            System.out.println(SL.getString("It is the ") + currentEnemy.getName() + "!");
             enemyHealth = currentEnemy.getHealth();
-            System.out.println("His health is  " + enemyHealth);
+            System.out.println(SL.getString("His health is  ") + enemyHealth);
         }
     }
 
@@ -116,7 +116,7 @@ public class Fight
 
     private void printDamageDone()
     {
-        System.out.println("Total damage done: " + damage + "hp");
+        System.out.println(SL.getString("Total damage done: ") + damage + "hp");
     }
 
     public void setGrenade(boolean grenadeBoolean)
@@ -130,12 +130,12 @@ public class Fight
         if (bossfight == false) {
             if (enemyHealth <= 0) {
                 enemyHealth = 0;
-                System.out.println("You defeated the " + currentEnemy.getName());
+                System.out.println(SL.getString("You defeated the ") + currentEnemy.getName());
                 inFight = false;
                 itemDrop();
             }
             else {
-                System.out.println("Current health enemey: " + enemyHealth + " hp");
+                System.out.println(SL.getString("Current health enemey: ") + enemyHealth + " hp");
             }
         }
         else {
@@ -143,20 +143,20 @@ public class Fight
                 if (grenade == false) {
                     health = 0;
                     //System.out.println("The " + currentEnemy.getName() + " killed you ");
-                    System.out.println("You need a grenade if You want to win this fight");
+                    System.out.println(SL.getString("You need a grenade if You want to win this fight"));
                     quit = true;
                 }
                 else {
-                    System.out.println("The " + currentEnemy.getName() + " is almost dead, I think this grenade will get the job done");
-                    System.out.println("*Throws grenade*");
-                    System.out.println("It worked! Your job is done here.");
+                    System.out.println(SL.getString("The ") + currentEnemy.getName() + SL.getString(" is almost dead, I think this grenade will get the job done"));
+                    System.out.println(SL.getString("*Throws grenade*"));
+                    System.out.println(SL.getString("It worked! Your job is done here."));
                     enemyHealth = 0;
                     inFight = false;
                     quit = true;
                 }
             }
             else {
-                System.out.println("Current health enemey: " + enemyHealth + " hp");
+                System.out.println(SL.getString("Current health enemey: ") + enemyHealth + " hp");
             }
         }
     }
@@ -180,12 +180,12 @@ public class Fight
             health = health - receveidDamage;
             if (health <= 0) {
                 health = 0;
-                System.out.println("The " + currentEnemy.getName() + " killed you ");
+                System.out.println(SL.getString("The ") + currentEnemy.getName() + SL.getString(" killed you "));
                 quit = true;
             }
             else {
-                System.out.println("The " + currentEnemy.getName() + " did " + receveidDamage + " damage");
-                System.out.println("Your current health is: " + health + " hp");
+                System.out.println(SL.getString("The ") + currentEnemy.getName() + SL.getString(" did ") + receveidDamage + SL.getString(" damage"));
+                System.out.println(SL.getString("Your current health is: ") + health + " hp");
             }
         }
     }
@@ -194,7 +194,7 @@ public class Fight
     {
         //inFight = true;
         damage = rand.nextInt(5) + 1;
-        System.out.println("punched " + currentEnemy.getName());
+        System.out.println(SL.getString("punched ") + currentEnemy.getName());
         printDamageDone();
         printEnemyStatus();
         printReceveidDamage();
@@ -208,12 +208,12 @@ public class Fight
         health = health + regeneration;
         if (health > 20) {
             health = 20;
-            System.out.println("You regenerated " + (health - oldHealth) + " hp");
-            System.out.println("Your current health is: " + health + " hp");
+            System.out.println(SL.getString("You regenerated ") + (health - oldHealth) + " hp");
+            System.out.println(SL.getString("Your current health is: ") + health + " hp");
         }
         else {
-            System.out.println("You regenerated " + regeneration + " hp");
-            System.out.println("Your current health is: " + health + " hp");
+            System.out.println(SL.getString("You regenerated ") + regeneration + " hp");
+            System.out.println(SL.getString("Your current health is: ") + health + " hp");
         }
     }
 
@@ -221,21 +221,21 @@ public class Fight
     {
         String direction = SL.getEnglishString(command.getSecondWord());
         if (direction == null) {
-            System.out.println("Stab where?");
-            System.out.println("You can stab the head or the chest");
+            System.out.println(SL.getString("Stab where?"));
+            System.out.println(SL.getString("You can stab the head or the chest"));
         }
         else {
             if (direction == "head") {
                 hit = rand.nextInt(2) + 1;
                 if (hit >= 2) {
                     damage = rand.nextInt(7) + 2 + itemDamage;
-                    System.out.println("stabbed enemy " + direction);
+                    System.out.println(SL.getString("stabbed enemy ") + SL.getString(direction));
                     printDamageDone();
                     printEnemyStatus();
                     printReceveidDamage();
                 }
                 else {
-                    System.out.println("You missed the attack");
+                    System.out.println(SL.getString("You missed the attack"));
                     printReceveidDamage();
                 }
             }
@@ -243,13 +243,13 @@ public class Fight
                 hit = rand.nextInt(3) + 1;
                 if (hit >= 2) {
                     damage = rand.nextInt(7) + itemDamage;
-                    System.out.println("stabbed enemy " + direction);
+                    System.out.println(SL.getString("stabbed enemy ") + SL.getString(direction));
                     printDamageDone();
                     printEnemyStatus();
                     printReceveidDamage();
                 }
                 else {
-                    System.out.println("You missed the attack");
+                    System.out.println(SL.getString("You missed the attack"));
                     printReceveidDamage();
                 }
             }

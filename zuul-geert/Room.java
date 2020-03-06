@@ -62,12 +62,12 @@ public class Room
     {
         return description;
     }
-    
+
     public int getKey()
     {
         return key;
     }
-    
+
     public void setKey(int key)
     {
         this.key = key;
@@ -109,7 +109,7 @@ public class Room
     {
         return exits.get(direction);
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -122,7 +122,7 @@ public class Room
         couch = new Item(name, weight, yes, damage);
         itemList.add(couch);
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -135,24 +135,24 @@ public class Room
             System.out.println(SL.getString("This room contains:"));
             for (int i = 0; i < itemList.size(); i++) {
                 if (itemList.get(i).getPickup() == true) {
-                  System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
-                  + SL.getString(", weight: ")
-                  + itemList.get(i).getWeight() + " Kg");
+                    System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
+                        + SL.getString(", weight: ")
+                        + itemList.get(i).getWeight() + " Kg");
                 }
                 else {
-                  System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
-                  + SL.getString(", weighing too much to pick up"));
+                    System.out.println(SL.getString("A(n) ") + SL.getString(itemList.get(i).getName())
+                        + SL.getString(", weighing too much to pick up"));
                 }
             }
         }
         else {
             System.out.println(SL.getString("This room does not contain any items"));
         }
-        
+
         //System.out.println(itemList.get(0).getName());
         //System.out.println(itemList.get(0).getWeight());
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -163,17 +163,17 @@ public class Room
     {
         return name.getName();
     }
-    
+
     public int getWeight(Item name)
     {
         return name.getWeight();
     }
-    
+
     public boolean getBoolean(Item name)
     {
         return name.getPickup();
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -189,19 +189,19 @@ public class Room
             Item item2 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
             itemList.add(item2);
         }
-        
+
         if (itemList.size() == 0) {
             randomeInteger = rand.nextInt(names.size());
             Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5));
             itemList.add(item1);
         }
     }
-    
+
     public void addItem(Item item)
     {
         itemList.add(item);
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -213,10 +213,10 @@ public class Room
         int integer = rand.nextInt(2);
         //System.out.println("The randome integer is " + integer);
         for (int i = 0; i < integer; i++) {
-          setRandomItem();
+            setRandomItem();
         }
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -229,13 +229,11 @@ public class Room
         names.add("axe");
         //names.add("key");
         names.add("stick");
-        names.add("screw");
         names.add("hammer");
         names.add("crowbar");
-        names.add("ductape");
         names.add("knife");
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -245,16 +243,16 @@ public class Room
     public Item getItem(String theName)
     {
         for (int i = 0; i < itemList.size(); i++) {
-             String nameList = itemList.get(i).getName();
-             if (nameList == theName){
-                 return itemList.get(i);
-                }
-             //System.out.println(itemList.get(i));
+            String nameList = itemList.get(i).getName();
+            if (nameList == theName){
+                return itemList.get(i);
+            }
+            //System.out.println(itemList.get(i));
         }
         //return itemList.get(0);
         return null;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -266,17 +264,17 @@ public class Room
         // schrijf hier jouw code
         return "item1";
     }
-    
+
     public void newItem(int level, String enemyName)
     {
-        
+
         //createItems();
         randomeInteger = rand.nextInt(names.size());
         Item item1 = new Item(names.get(randomeInteger), rand.nextInt(6) + 1, true, rand.nextInt(5 + level));
         addItem(item1);
         System.out.println(SL.getString("The ") + enemyName + SL.getString(" dropped a(n) ") + item1.getName());
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -287,7 +285,7 @@ public class Room
     {
         itemList.remove(item);
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -298,7 +296,7 @@ public class Room
     {
         this.level = level;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -310,10 +308,6 @@ public class Room
         return level;
     }
 
-
     
 
-
-
 }
-

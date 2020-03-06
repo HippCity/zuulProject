@@ -24,7 +24,7 @@ public class Item
         this.pickup = pickup;
         this.damage = damage;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -36,7 +36,7 @@ public class Item
         // schrijf hier jouw code
         return name;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -48,7 +48,7 @@ public class Item
         // schrijf hier jouw code
         return weight;
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -65,7 +65,6 @@ public class Item
     {
         return damage;
     }
-    
 
 
 }

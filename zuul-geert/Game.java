@@ -31,7 +31,7 @@ public class Game
     private boolean wantToQuit;
     private int chance = 0;
     public static String language;
-    
+
     Random rand = new Random();
 
     /**
@@ -45,7 +45,7 @@ public class Game
         language = "EN";
         parser = new Parser();
         inventory = new Inventory(20);
-        fight = new Fight(99);
+        fight = new Fight(20);
         //inventory.Inventory();
     }
 
@@ -214,7 +214,7 @@ public class Game
                 break;
 
                 default:
-                System.out.println("You need to be in a fight to use that command");
+                System.out.println(SL.getString("You need to be in a fight to use that command"));
 
                 //case inspect:
                 //    inspect(command);
@@ -253,9 +253,8 @@ public class Game
                 punch(command);
                 break;
 
-                        
                 default:
-                System.out.println("You can't use that command when in a fight");
+                System.out.println(SL.getString("You can't use that command when in a fight"));
 
             }
         }
@@ -321,7 +320,6 @@ public class Game
             equipedItem.add(item);
             //currentRoom.removeItem(item);
 
-                
         }
         else {
             System.out.println(SL.getString("Currenet weapon: ") + SL.getString(item.getName()));
@@ -579,7 +577,7 @@ public class Game
                 currentRoom = nextRoom;
                 System.out.println(currentRoom.getLongDescription());
                 roomList.add(currentRoom);
-                
+
                 chance = rand.nextInt(3);
                 if (chance == 2) {
                     startFight();

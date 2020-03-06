@@ -1,6 +1,5 @@
 import java.util.HashMap;
 
-
 /**
  * class SL - geef hier een beschrijving van deze class
  *
@@ -16,20 +15,19 @@ public class SL
     private static HashMap<String, String> EN = new HashMap<String, String>();
     private static HashMap<String, String> languages = new HashMap<String, String>();
     private static HashMap<String, String> NLEN = new HashMap<String, String>();
-    
-    
+
     /**
      * Constructor voor objects van class SL
      */
     public static void initialize()
     {
         //NL.put();
-        
+
         languages.put("EN", "EN");
         languages.put("NL", "NL");
-        
+
         //SL.getString(
-        
+
         EN.put("noord", "north");
         EN.put("oost", "east");
         EN.put("zuid", "south");
@@ -46,11 +44,11 @@ public class SL
         EN.put("oppakken", "pickup");
         EN.put("uitrusten", "equip");
         EN.put(".changefight", ".verandergevecht");
-        EN.put(".stab", ".steek");
-        EN.put(".block", ".blokkeer");
-        EN.put(".punch", ".vuistslag");
-        EN.put("drop", "laatvallen");
-        
+        EN.put(".steek", ".stab");
+        EN.put(".blokkeer", ".block");
+        EN.put(".vuistslag", ".punch");
+        EN.put("laatvallen", "drop");
+
         NL.put("outside the main entrance of the Hawkins laboratory", "buiten de hoofdingang van het Hawkins laboratorium");
         NL.put("in the reception area", "in de receptie");
         NL.put("in the waiting room", "in de wacht kamer");
@@ -121,15 +119,45 @@ public class SL
         NL.put("Demogorgon", "Demogorgon");
         NL.put("Tentacle Hydra Portal", "Tentakel Hydra Portaal");
         NL.put("grenade", "granaat");
+        NL.put("You need to be in a fight to use that command", "Je moet in een gevecht zijn om dat commando te gebruiken");
+        NL.put("You can't use that command when in a fight", "Je kan dat commando niet gebruiken tijdens een gevecht");
+        NL.put("You need a key to open that door!", "Je hebt een sleutol nodig om die deur te openen!");
+        NL.put("*Opened the door with the key*", "*Opent de deur met de sleutol*");
+        NL.put("You stumbled across a(n) ", "Je bent tegengekomen: een ");
+        NL.put("His health is  ", "Zijn gezondheid is ");
+        NL.put("It is the ", "Het is de ");
+        NL.put("Total damage done: ", "Totale schade aangericht: ");
+        NL.put("You defeated the ", "Je hebt verslagen: De  ");
+        NL.put("Current health enemey: ", "Huidige gezondheid vijand:  ");
+        NL.put("You need a grenade if You want to win this fight", "Je hebt een granaat nodig om dit gevecht te winnen ");
+        NL.put(" is almost dead, I think this grenade will get the job done", " is bijna dood, Ik denk dat deze granaat zal voldoen");
+        NL.put("*Throws grenade*", "*Gooit de granaat*");
+        NL.put("It worked! Your job is done here.", "Het heeft gewerkt! Mijn werk is klaar hier.");
+        NL.put(" killed you ", " heeft je doodgemaakt ");
+        NL.put(" did ", " deed ");
+        NL.put(" damage", " schade ");
+        NL.put("Your current health is: ", "Je huidige gezondheid is: ");
+        NL.put("punched ", "klap gegeven aan de ");
+        NL.put("You regenerated ", "Je hebt hersteld: ");
+        NL.put("Stab where?", "Waar steken?");
+        NL.put("You can stab the head or the chest", "Je kan steken in het hoofd of in de borst ");
+        NL.put("head", "hoofd");
+        NL.put("chest", "borst");
+        NL.put("stabbed enemy ", "Vijand gestoken in de/het ");
+        NL.put("You missed the attack", "Je hebt de aanval gemist");
+        NL.put("The ", "De ");
+        NL.put("The ", "De ");
+        NL.put("The ", "De ");
         
         
+
         
         //command words
         for (String translation : EN.keySet()){
             String translated = EN.get(translation);
             NL.put(translated, translation);
         }
-        
+
         for (String translation : NL.keySet()){
             String translated = NL.get(translation);
             NLEN.put(translated, translation);
@@ -147,8 +175,7 @@ public class SL
         //NL.put("about", "over");
         //NL.put("inventory", "inventaris");
         //NL.put("language", "taal");
-        
-        
+
         //NL.put(, "");
         //NL.put(, "");
     }
@@ -161,7 +188,7 @@ public class SL
      */
     public static String getString(String key)
     {
-            if (Game.language == "NL") {
+        if (Game.language == "NL") {
             string = NL.get(key);
             //System.out.println("the key is " + key);
             //System.out.println("the string is " + string);
@@ -171,7 +198,7 @@ public class SL
             return key;
         }
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -182,7 +209,7 @@ public class SL
     {
         return languages.get(lang);
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -191,7 +218,7 @@ public class SL
      */
     public static String getEnglishString(String key)
     {
-            if (Game.language == "NL") {
+        if (Game.language == "NL") {
             string = EN.get(key);
             //System.out.println("the string is " + string);
             return string;
@@ -200,7 +227,7 @@ public class SL
             return key;
         }
     }
-    
+
     /**
      * Voorbeeld van een method - schrijf hier jouw comment
      *
@@ -209,8 +236,8 @@ public class SL
      */
     public static String getItemString(String key)
     {
-        
-           if (Game.language == "NL") {
+
+        if (Game.language == "NL") {
             //string = NL.get(key);
             string = NLEN.get(key);
             //System.out.println("the key is " + key);
@@ -225,6 +252,5 @@ public class SL
             return string;
         }
     }
-
 
 }

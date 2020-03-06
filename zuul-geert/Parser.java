@@ -63,7 +63,7 @@ public class Parser
     {
         commands.showAll();
     }
-    
+
     /**
      * Print out a list of valid command words.
      */

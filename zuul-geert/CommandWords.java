@@ -38,7 +38,7 @@ public class CommandWords
      */
     public CommandWord getCommandWord(String commandWord)
     {
-        
+
         String correctCommandWord = SL.getEnglishString(commandWord);
         CommandWord command = validCommands.get(correctCommandWord);
         if(command != null) {
@@ -48,7 +48,7 @@ public class CommandWords
             return CommandWord.UNKNOWN;
         }
     }
-    
+
     /**
      * Check whether a given String is a valid command word. 
      * @return true if it is, false if it isn't.
@@ -71,7 +71,7 @@ public class CommandWords
         }
         System.out.println();
     }
-    
+
     /**
      * Print all valid commands to System.out.
      */

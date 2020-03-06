@@ -12,13 +12,13 @@ public enum CommandWord
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), BACK("back"), ABOUT("about")
     , INVENTORY("inventory"), LANGUAGE("language"), PICKUP("pickup")
     , EQUIP("equip"), DROP("drop")
-    
+
     //combat commands
     , STAB(".stab"), BLOCK(".block"), PUNCH(".punch");
-    
+
     // The command string.
     private String commandString;
-    
+
     /**
      * Initialise with the corresponding command string.
      * @param commandString The command string.
@@ -27,7 +27,7 @@ public enum CommandWord
     {
         this.commandString = commandString;
     }
-    
+
     /**
      * @return The command word as a string.
      */
